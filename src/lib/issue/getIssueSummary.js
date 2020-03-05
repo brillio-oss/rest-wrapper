@@ -1,11 +1,12 @@
 const { JIRA } = require("../client");
 
-const getIssueSummary = (key) => {
-  const query = JIRA.issue.getIssue({ issueKey: key })
-  return query.then(issue => {
-      return issue.fields.summary;
-    })
-    .catch(error => console.error(error));
+const getIssueSummary = async key => {
+  try {
+    const issue = await JIRA.issue.getIssue({ issueKey: key });
+    return issue.fields.summary;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
