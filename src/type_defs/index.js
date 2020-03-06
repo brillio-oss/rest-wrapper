@@ -8,10 +8,26 @@ const typeDefs = gql`
     key: String
   }
 
+  type ProjectLead {
+    key: String,
+    name: String,
+    self: String,
+    displayName: String
+  }
+
+  type ProjectDetail {
+    name: String,
+    description: String,
+    lead: ProjectLead,
+    id: String,
+    self: String
+  }
+
   type Query {
     hello: String
     summary(key: String!): String
     getAllProjects: [Project]
+    getProjectById(idOrKey: String!): ProjectDetail
   }
 `;
 
