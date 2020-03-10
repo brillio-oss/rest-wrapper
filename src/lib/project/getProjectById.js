@@ -1,16 +1,11 @@
 const { JIRA } = require("../client");
 
-const getProjectById = async (idOrKey) => {
-  console.log(idOrKey)
-  if (!idOrKey) return;
+const getProjectById = async idOrKey => {
   try {
-    const project = await JIRA.project.getProject({ projectIdOrKey: idOrKey });
-    const { name, description, lead, id, self } = project
-    const obj = {
-      name, description, lead, id, self
-    }
-    console.log(obj)
-    return obj
+    const project = await JIRA.project.getProject({
+      projectIdOrKey: idOrKey.toUpperCase()
+    });
+    return project;
   } catch (error) {
     console.log(error);
   }

@@ -23,11 +23,29 @@ const typeDefs = gql`
     self: String
   }
 
+  type Board {
+    id: Int,
+    name: String
+  }
+
+  type Sprint {
+    id: String,
+    state: String,
+    name: String,
+    startDate: String,
+    endDate: String,
+    completeDate: String,
+    originBoardId: Int,
+    goal: String
+  }
+
   type Query {
     hello: String
     summary(key: String!): String
     getAllProjects: [Project]
     getProjectById(idOrKey: String!): ProjectDetail
+    getBoardsByProject(idOrKey: String!): [Board]
+    getAllSprintsByBoard(boardId: Int): [Sprint]
   }
 `;
 
