@@ -1,5 +1,4 @@
-// import gql from "graphql-tag";
-const gql = require("graphql-tag");
+const { gql } = require("apollo-server-lambda");
 
 const typeDefs = gql`
   type Project {

@@ -1,0 +1,16 @@
+org: csp
+app: zero-g-remote-schema
+service: apollo-lambda
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-west-2
+functions:
+  graphql:
+    handler: index.graphqlHandler
+    events:
+      - http:
+          path: graphql
+          method: get
+          cors: true
+          integration: lambda-proxy
