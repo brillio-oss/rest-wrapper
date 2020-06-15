@@ -6,7 +6,7 @@ const { getAllSprintsByBoard } = require("../lib/sprint/getAllSprints");
 
 const resolvers = {
   Query: {
-    hello: () => "brillio",
+    hello: (_, args) => "brillio",
     summary: (_, args) => getIssueSummary(args.key),
     getAllProjects: () => getAllProjects(),
     getProjectById: (_, args) => getProjectById(args.idOrKey),
