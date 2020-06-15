@@ -40,7 +40,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    hello: String
+    hello(key: String!): String
     summary(key: String!): String
     getAllProjects: [Project]
     getProjectById(idOrKey: String!): ProjectDetail
